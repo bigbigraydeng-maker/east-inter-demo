@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Estimate shipping costs in Australian dollars from Guangzhou to Australia. East Inter September 2026 freight rates, including chargeable weight and delivery options.">
+  <title>Shipping Cost Estimator | East Inter</title>
+  <style>
+    :root{--blue:#1E3570;--orange:#D97321;--ink:#1a2946;--muted:#627089;--line:#dde3ed;--canvas:#f4f6fa;--soft:#edf1f8}
+    *{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}
+    button,input,select{font:inherit}button,select{cursor:pointer}button,input,select,a{-webkit-tap-highlight-color:transparent}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+    header{background:#fff;border-bottom:1px solid var(--line)}.header-inner{max-width:1180px;margin:auto;padding:23px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px;color:var(--blue)}.brand-mark{width:37px;height:37px;background:var(--blue);border-radius:9px;display:grid;place-items:center;color:white;font-size:22px;font-weight:800}.brand-name{font-size:23px;font-weight:800;letter-spacing:-.8px}.brand-name span{color:var(--orange)}.header-actions{display:flex;align-items:center;gap:18px}.header-meta{font-size:11px;letter-spacing:1.8px;font-weight:700;color:var(--muted)}.home-link{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 15px;border:1px solid var(--blue);border-radius:9px;color:var(--blue);font-size:13px;font-weight:750;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s}.home-link:hover{background:var(--blue);color:#fff}
+    main{max-width:1180px;margin:auto;padding:47px 40px 30px}.intro{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:32px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2.2px;color:var(--orange);margin:0 0 10px}h1{font-size:clamp(30px,3.5vw,43px);line-height:1.18;letter-spacing:-1.5px;margin:0 0 13px;color:var(--blue)}.intro p:last-child{margin:0;color:var(--muted);font-size:14px}.rate-tag{white-space:nowrap;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:8px 14px;font-size:11px;color:var(--blue);margin-bottom:4px}.dot{height:6px;width:6px;background:var(--orange);border-radius:50%}
+    .layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:start}.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 25px #1e357004}.form-card{padding:28px 30px}.step{border:0;padding:0;margin:0 0 26px;min-width:0}.step:last-child{margin-bottom:0}.step legend,.step-title{padding:0;display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;margin-bottom:15px}.step-no{width:24px;height:24px;display:inline-grid;place-items:center;border-radius:50%;background:var(--soft);color:var(--blue);font-size:11px;font-weight:800}.step-title label{cursor:pointer}.services{display:grid;grid-template-columns:1fr 1fr;gap:10px}.service{border:1px solid var(--line);border-radius:10px;background:#fff;text-align:left;padding:15px 14px;position:relative;color:var(--ink);min-height:103px;transition:background .15s,border-color .15s}.service:hover{border-color:#8898b8;background:#f8faff}.service[aria-pressed="true"]{border:2px solid var(--blue);padding:14px 13px;background:#f0f4fb}.service .symbol{display:block;font-size:19px;color:var(--blue);line-height:1;margin-bottom:10px}.service .label{display:block;font-size:14px;font-weight:700}.service small{display:block;overflow-wrap:anywhere;color:var(--muted);font-size:10px;margin-top:2px;letter-spacing:.3px}.check{position:absolute;right:12px;top:11px;border:1px solid #c7cfdd;width:16px;height:16px;border-radius:50%;font-size:10px;text-align:center;line-height:14px;color:transparent}.service[aria-pressed="true"] .check{background:var(--blue);color:#fff;border-color:var(--blue)}
+    select{width:100%;height:48px;border:1px solid #cfd7e4;border-radius:9px;background:#fff;color:var(--ink);padding:0 12px;font-size:14px}.measurement{display:flex;border:1px solid #cfd7e4;border-radius:9px;overflow:hidden;align-items:center}.measurement:focus-within{outline:3px solid var(--orange);outline-offset:3px}.measurement input{width:100%;min-width:0;border:0;background:transparent;font-size:22px;font-weight:650;color:var(--blue);padding:10px 14px;outline:none}.measurement span{padding:0 16px;white-space:nowrap;color:var(--muted);font-size:13px}.hint{font-size:11px;line-height:1.7;color:var(--muted);margin:8px 0 0}.options{margin-top:17px}.options label{font-size:12px;font-weight:650;display:block;margin-bottom:7px}.segmented{display:grid;grid-template-columns:1fr 1fr;gap:8px}.segmented button{border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--muted);font-size:12px;padding:10px 6px}.segmented button[aria-pressed="true"]{background:var(--soft);border-color:var(--blue);color:var(--blue);font-weight:700}.error{font-size:12px;color:#a73125;margin:8px 0 0}[hidden]{display:none!important}
+    .quote{overflow:hidden}.quote-top{background:var(--blue);color:white;padding:28px 28px 24px;position:relative}.quote-top:after{content:"";position:absolute;right:-37px;top:-59px;width:180px;height:180px;border:1px solid #ffffff12;border-radius:50%;pointer-events:none}.quote-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#c4cee4;margin:0 0 7px}.quote-top h2{font-size:14px;font-weight:500;margin:0;color:#edf1fa}.price{display:flex;align-items:baseline;gap:10px;margin:7px 0 1px;flex-wrap:wrap}.price strong{font-size:clamp(38px,4.6vw,53px);line-height:1.25;letter-spacing:-1.5px;font-weight:750;overflow-wrap:anywhere}.price span{font-size:12px;color:#c4cee4;letter-spacing:1px}.quote-subtitle{font-size:11px;color:#c4cee4;margin:9px 0 0}.transit{display:flex;align-items:center;gap:10px;margin-top:23px;padding-top:17px;border-top:1px solid #ffffff24;font-size:12px;color:#c4cee4}.transit strong{text-align:right;color:white;font-size:13px;margin-left:auto}.quote-body{padding:24px 28px}.route{display:flex;align-items:center;gap:11px;padding-bottom:19px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}.route .route-city{min-width:0;overflow-wrap:anywhere;font-weight:700;color:var(--blue)}.route .route-line{height:1px;background:var(--line);flex:1;min-width:12px}.breakdown-heading{display:flex;justify-content:space-between;align-items:center;margin:20px 0 13px}.breakdown-heading h3{font-size:13px;margin:0}.breakdown-heading span{font-size:10px;color:var(--muted)}.line-item{display:flex;justify-content:space-between;align-items:baseline;gap:15px;font-size:12px;margin:11px 0;color:var(--muted)}.line-item span:first-child{min-width:0;overflow-wrap:anywhere}.line-item strong{white-space:nowrap;font-weight:600;color:var(--ink)}.line-total{border-top:1px dashed var(--line);padding-top:14px;margin-top:15px;font-size:13px;font-weight:700;color:var(--blue)}.line-total strong{color:var(--blue)}.note{border-radius:8px;background:#f5f7fa;padding:12px 14px;font-size:11px;line-height:1.8;color:var(--muted);margin:18px 0 0}.surcharge{background:#fff3e7;color:#81420f;border-left:3px solid var(--orange)}.contact{display:block;margin-top:20px;background:var(--orange);border-radius:9px;text-decoration:none;text-align:center;color:#fff;font-size:13px;font-weight:700;padding:12px}.contact:hover{background:#c36117}.disclaimer{text-align:center;font-size:10px;color:var(--muted);margin:9px 0 0}.below{display:flex;justify-content:center;gap:24px;color:var(--muted);font-size:11px;margin:25px 0 0}.below span{display:flex;align-items:center;gap:7px}.below i{font-style:normal;color:var(--orange)}footer{max-width:1100px;margin:0 auto;padding:23px 24px 28px;text-align:center;border-top:1px solid var(--line);font-size:10px;line-height:1.9;color:var(--muted);overflow-wrap:anywhere}footer a{color:inherit;text-decoration:none}
+    @media(max-width:800px){.header-inner{padding:19px 24px}main{padding:30px 24px 25px}.intro{display:block}.rate-tag{display:inline-flex;margin-top:18px}.layout{grid-template-columns:1fr;gap:20px}.quote-top{padding:25px}.quote-body{padding:22px 25px}.price strong{font-size:48px}.header-meta{font-size:9px;letter-spacing:1px}}
+    @media(max-width:600px){.header-meta{display:none}.header-actions{gap:0}.home-link{padding:7px 11px;font-size:12px}}
+    @media(max-width:440px){.header-inner{padding:16px}.brand{gap:9px}.brand-mark{width:34px;height:34px;font-size:20px}.brand-name{font-size:19px}main{padding:27px 16px 24px}h1{font-size:32px;letter-spacing:-1px;max-width:330px}.intro{margin-bottom:23px}.intro p:last-child{font-size:12px}.form-card{padding:22px 20px}.services{gap:9px}.service{padding:13px 11px}.service[aria-pressed="true"]{padding:12px 10px}.service small{font-size:9px}.below{gap:14px;font-size:10px}.quote-top,.quote-body{padding:23px}.price strong{font-size:46px}}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header><div class="header-inner"><div class="brand" aria-label="East Inter"><div class="brand-mark" aria-hidden="true">E</div><div class="brand-name">EAST<span> INTER</span></div></div><div class="header-actions"><div class="header-meta">CHINA → AUSTRALIA</div><a class="home-link" href="/" aria-label="Back to East Inter home page">← Back to Home</a></div></div></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">PLAN YOUR SHIPMENT</p><h1>Shipping Cost Estimator</h1><p>Guangzhou to Australia. Get an instant estimate in Australian dollars.</p></div><div class="rate-tag"><span class="dot"></span> SEPTEMBER 2026 RATES</div></div>
+    <div class="layout">
+      <section class="card form-card" aria-label="Shipping options">
+        <fieldset class="step"><legend><span class="step-no">01</span>Choose your service</legend><div class="services">
+          <button class="service" type="button" data-service="lcl" aria-pressed="true"><span class="symbol" aria-hidden="true">▤</span><span class="check" aria-hidden="true">✓</span><span class="label">LCL sea freight</span><small>DOOR TO DOOR · CLEARANCE INCLUDED</small></button>
+          <button class="service" type="button" data-service="airParcel" aria-pressed="false"><span class="symbol" aria-hidden="true">✈</span><span class="check" aria-hidden="true">✓</span><span class="label">Air parcel</span><small>BILLED PER 0.5kg</small></button>
+          <button class="service" type="button" data-service="seaParcel" aria-pressed="false"><span class="symbol" aria-hidden="true">▱</span><span class="check" aria-hidden="true">✓</span><span class="label">Sea parcel</span><small>BILLED PER kg</small></button>
+          <button class="service" type="button" data-service="bulkAir" aria-pressed="false"><span class="symbol" aria-hidden="true">↗</span><span class="check" aria-hidden="true">✓</span><span class="label">Bulk air freight</span><small>AIR FREIGHT · 10–99kg</small></button>
+        </div></fieldset>
+        <div class="step"><div class="step-title"><span class="step-no">02</span><label for="city">Choose your destination</label></div><select id="city"></select>
+          <div class="options" id="delivery-options" hidden><label for="delivery">Delivery option</label><select id="delivery"><option value="door">Add door delivery</option><option value="collection">Warehouse collection (no delivery fee)</option></select></div>
+          <div class="options" id="cargo-options" hidden><label for="cargo">Goods type</label><select id="cargo"><option value="normal">General goods</option><option value="sensitive">Sensitive goods (powders / liquids / batteries)</option></select></div>
+          <div class="options" id="tax-options" hidden><div class="hint" style="margin:0 0 7px">Duties & taxes</div><div class="segmented" role="group" aria-label="Duties & taxes"><button type="button" data-tax="DDU" aria-pressed="false">DDU · Duties unpaid</button><button type="button" data-tax="DDP" aria-pressed="true">DDP · Duties included</button></div></div>
+        </div>
+        <div class="step"><div class="step-title"><span class="step-no">03</span><label id="quantity-label" for="quantity">Enter shipment volume</label></div><div class="measurement"><input id="quantity" type="number" inputmode="decimal" min="1" step="any" value="5" aria-describedby="quantity-hint quantity-error"><span id="unit">m³ / CBM</span></div><p class="hint" id="quantity-hint"></p><p class="error" id="quantity-error" role="alert" hidden></p><div class="options" id="volume-options" hidden><label for="volume">Total packed volume (m³, optional)</label><div class="measurement"><input id="volume" type="number" inputmode="decimal" min="0" step="any" placeholder="Optional" aria-describedby="volume-hint"><span>m³ / CBM</span></div><p class="hint" id="volume-hint">Volume weight = L × W × H (cm) ÷ 6,000, or total m³ × 1,000,000 ÷ 6,000. We use the greater of actual and volume weight. If omitted, the estimate uses actual weight only.</p></div></div>
+      </section>
+      <aside class="card quote" aria-label="Live shipping estimate" aria-live="polite" aria-atomic="true">
+        <div class="quote-top"><p class="quote-label">YOUR SHIPPING ESTIMATE</p><h2 id="estimate-title">Estimated shipping cost</h2><div class="price"><strong id="price">—</strong><span>AUD</span></div><p class="quote-subtitle" id="quote-subtitle"></p><div class="transit"><span aria-hidden="true">◷</span><span>Estimated transit time</span><strong id="transit">—</strong></div></div>
+        <div class="quote-body"><div class="route"><span>GUANGZHOU</span><span class="route-line"></span><span aria-hidden="true">→</span><span class="route-city" id="route-city">Sydney</span></div><div class="breakdown-heading"><h3>Cost breakdown</h3><span>PRICE BREAKDOWN</span></div><div id="breakdown"></div><p id="surcharge" class="note surcharge" hidden></p><p class="note" id="pricing-note"></p><a class="contact" href="mailto:info@eastinter.com.au">Request a binding quote ↗</a><p class="disclaimer">Estimates are indicative. Final charges are subject to a binding quote.</p></div>
+      </aside>
+    </div>
+    <div class="below"><span><i>✓</i> Instant estimates</span><span><i>✓</i> Clear breakdown</span><span><i>✓</i> No sign-up</span></div>
+  </main>
+  <footer>All prices in AUD · Rates effective September 2026 · Contact <a href="mailto:info@eastinter.com.au">info@eastinter.com.au</a> for a binding quote</footer>
+  <script>
+    'use strict';
+    // Source: East Inter Freight Rates, effective September 2026. AUD rates, not FX conversions.
+    const cities = {sydney:'Sydney',melbourne:'Melbourne',brisbane:'Brisbane',perth:'Perth (Fremantle)',adelaide:'Adelaide',goldCoast:'Gold Coast',sunshineCoast:'Sunshine Coast',other:'Other cities'};
+    const lclRates = {
+      sydney:{first:388,large:327,next:225,days:'Approx. 20 days'},
+      melbourne:{first:388,large:327,next:225,days:'Approx. 20 days'},
+      brisbane:{first:388,large:327,next:225,days:'Approx. 25 days'},
+      goldCoast:{first:388,large:327,next:225,days:'Approx. 25 days',extra:55,minimum:275,fee:'Regional surcharge'},
+      sunshineCoast:{first:388,large:327,next:225,days:'Approx. 25 days',extra:55,minimum:275,fee:'Regional surcharge'},
+      perth:{first:347,large:337,next:245,days:'25–30 days',extra:55,minimum:165,fee:'Door delivery',optional:true},
+      adelaide:{first:439,large:419,next:286,days:'Approx. 30 days',extra:35,minimum:135,fee:'Door delivery',optional:true}
+    };
+    const airParcelRates = {normal:{first:15,next:6,days:'7–12 days'},sensitive:{first:18,next:7,days:'7–14 days'}};
+    const seaParcelRates = {metro:{first:17,next:3,flat:3},other:{first:22,next:7,flat:5}};
+    // Both DDU and DDP rates in this guide are per 0.5kg.
+    const bulkRates = {
+      sydney:{DDU:10,DDP:11,days:'6–8 days'},melbourne:{DDU:10,DDP:11,days:'6–8 days'},
+      brisbane:{DDU:11,DDP:12,days:'8–10 days'},adelaide:{DDU:11,DDP:12,days:'8–10 days'},
+      perth:{DDU:11,DDP:12,days:'8–12 days'},other:{DDU:12,DDP:13,days:'8–12 days'}
+    };
+    const serviceNames = {lcl:'LCL sea freight',airParcel:'Air parcel',seaParcel:'Sea parcel',bulkAir:'Bulk air freight'};
+    const $ = id => document.getElementById(id);
+    const number = n => new Intl.NumberFormat('en-AU',{maximumFractionDigits:2}).format(n);
+    const money = n => 'A$' + number(n);
+    const ceilUnits = (n,size) => Math.ceil(n / size - 1e-9);
+    const seaExtras = 'Not included: any applicable GST (10% of goods value), import duty (0–10%, depending on product), fumigation (A$143 per shipment for wood/natural materials), or customs broker fee (A$99; A$201 if cargo value exceeds A$10,000). Contact us to confirm which charges apply.';
+    let service = 'lcl', tax = 'DDP';
+    const savedQuantities = {lcl:'5',airParcel:'2',seaParcel:'25',bulkAir:'50'};
+
+    function estimate({service,city,quantity,cargo='normal',tax='DDP',delivery='door',volume=null}) {
+      if (!Number.isFinite(quantity) || quantity <= 0) return {error:'Enter a valid weight or volume greater than zero.'};
+      if (service !== 'lcl' && volume !== null && (!Number.isFinite(volume) || volume < 0)) return {error:'Enter a valid packed volume of zero or greater, or leave it blank.'};
+      const volumetric = service === 'lcl' || volume === null ? 0 : volume * 1000000 / 6000;
+      const weight = service === 'lcl' ? quantity : Math.max(quantity,volumetric);
+      if (!Number.isFinite(weight)) return {error:'The entered shipment size is too large. Contact us for a quote.'};
+      if (service === 'lcl' && quantity < 1) return {error:'LCL rates start at 1 m³. Contact us for smaller shipments.'};
+      if (service === 'bulkAir' && (weight < 10 || weight > 99)) return {error:'Standard bulk air rates cover 10–99kg chargeable weight only. Contact us for other weights, including the reduced rates for shipments over 100kg.'};
+      let total=0, days='—', note='', warning='', billed=weight, lines=[];
+      if (service === 'lcl') {
+        const rate=lclRates[city];
+        if (!rate) return {error:'Contact us for LCL rates to this destination.'};
+        const first=quantity >= 10 ? rate.large : rate.first;
+        total=first+(quantity-1)*rate.next; days=rate.days;
+        lines.push(['First CBM · '+(quantity >= 10 ? '10 m³ and above' : 'under 10 m³'),first]);
+        if (quantity > 1) lines.push(['Additional '+number(quantity-1)+' m³ × '+money(rate.next),(quantity-1)*rate.next]);
+        note='Includes China export clearance, ocean freight, Australian import clearance and AQIS inspection. ';
+        if (rate.extra && (!rate.optional || delivery === 'door')) {
+          const fee=Math.max(quantity*rate.extra,rate.minimum);
+          total+=fee;
+          lines.push([rate.fee+' · '+money(rate.extra)+'/m³ (min. '+money(rate.minimum)+')',fee]);
+          note+=rate.fee+' is included in this estimate. ';
+        } else if (rate.optional) {
+          note+='Warehouse collection selected; door delivery is not included. ';
+        } else {
+          note+='Delivery within 30km of the warehouse is included; contact us for addresses outside this area. ';
+        }
+        note+='Origin: Guangzhou. Cargo cut-off: Tuesday; vessel departs the following Monday.';
+        warning=seaExtras;
+      } else if (service === 'airParcel') {
+        const rate=airParcelRates[cargo],units=ceilUnits(weight,0.5);
+        billed=units*0.5; total=rate.first+(units-1)*rate.next; days=rate.days;
+        lines.push(['First 0.5kg',rate.first]);
+        if (units > 1) lines.push(['Additional '+(units-1)+' × 0.5kg × '+money(rate.next),(units-1)*rate.next]);
+        note='Billed weight: '+number(billed)+'kg · '+(cargo === 'normal' ? 'General goods.' : 'Sensitive goods (powders / liquids / batteries).');
+        warning=weight >= 10 ? 'The guide lists small parcels as under approximately 10kg. This is a parcel-rate estimate only; use Bulk air freight or contact us to confirm eligibility for this weight.' : '';
+      } else if (service === 'seaParcel') {
+        const rate=seaParcelRates[['sydney','melbourne'].includes(city)?'metro':'other'];
+        const kg=ceilUnits(weight,1); billed=kg; days='30–40 days';
+        if (kg >= 20) {
+          total=kg*rate.flat; lines.push([number(kg)+'kg × '+money(rate.flat)+'/kg',total]);
+          note='Billed weight: '+number(kg)+'kg. The 20kg+ flat rate applies to the whole shipment; no first-kg charge is added.';
+        } else {
+          total=rate.first+(kg-1)*rate.next; lines.push(['First 1kg',rate.first]);
+          if (kg > 1) lines.push(['Additional '+(kg-1)+'kg × '+money(rate.next),(kg-1)*rate.next]);
+          note='Billed weight: '+number(kg)+'kg. Below 20kg billed weight, first-kg and additional-kg charges apply.';
+        }
+        warning=seaExtras;
+      } else {
+        const rate=bulkRates[city]||bulkRates.other,units=ceilUnits(weight,0.5);
+        billed=units*0.5; total=units*rate[tax]; days=rate.days;
+        lines.push([units+' × 0.5kg × '+money(rate[tax]),total]);
+        note=tax+' · Billed weight: '+number(billed)+'kg. '+(tax === 'DDP' ? 'All taxes prepaid; no extra charges at delivery.' : 'Recipient pays Australian duties and GST on arrival; these are not included.');
+      }
+      if (!Number.isFinite(total)) return {error:'The entered shipment size is too large. Contact us for a quote.'};
+      if (service !== 'lcl') {
+        note+=' Actual weight: '+number(quantity)+'kg.';
+        if (volume !== null) note+=' Volume weight: '+number(volumetric)+'kg. The greater weight is used before rounding.';
+        else note+=' Packed volume not provided; estimate assumes actual weight is the chargeable weight.';
+      }
+      return {total,days,note,warning,lines,billed};
+    }
+    function updateCities() {
+      const previous=$('city').value; $('city').replaceChildren();
+      Object.entries(cities).forEach(([key,label]) => {if (service !== 'lcl' || lclRates[key]) $('city').add(new Option(label,key));});
+      if ([...$('city').options].some(option => option.value === previous)) $('city').value=previous;
+    }
+    function selectService(next) {
+      savedQuantities[service]=$('quantity').value; service=next;
+      document.querySelectorAll('[data-service]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.service === service)));
+      $('cargo-options').hidden=service !== 'airParcel'; $('tax-options').hidden=service !== 'bulkAir'; $('volume-options').hidden=service === 'lcl';
+      $('quantity-label').textContent=service === 'lcl' ? 'Enter shipment volume' : 'Enter actual shipment weight';
+      $('unit').textContent=service === 'lcl' ? 'm³ / CBM' : 'kg';
+      $('quantity').min=service === 'lcl' ? '1' : '0.01';
+      $('quantity').removeAttribute('max'); $('quantity').value=savedQuantities[service];
+      updateCities(); calculate();
+    }
+    function row(label,value,total=false) {
+      const div=document.createElement('div'); div.className='line-item'+(total?' line-total':'');
+      const text=document.createElement('span'),amount=document.createElement('strong'); text.textContent=label; amount.textContent=value;
+      div.append(text,amount); $('breakdown').append(div);
+    }
+    function calculate() {
+      const city=$('city').value,quantity=$('quantity').valueAsNumber;
+      $('delivery-options').hidden=!(service === 'lcl' && lclRates[city]?.optional);
+      $('quantity-hint').textContent={
+        lcl:'1 CBM = 1 cubic metre. Minimum: 1 m³; extra volume is prorated. At 10 m³ and above, the reduced first-CBM rate applies.',
+        airParcel:'Small parcels: under approximately 10kg. Chargeable weight is rounded up to the next 0.5kg.',
+        seaParcel:'Chargeable weight is rounded up to a whole kg. At 20kg billed weight and above, the flat per-kg rate applies.',
+        bulkAir:'10–99kg chargeable weight only. Both DDU and DDP are priced per 0.5kg, rounded up.'
+      }[service];
+      const quote=estimate({service,city,quantity,cargo:$('cargo').value,tax,delivery:$('delivery').value,volume:$('volume').value.trim()===''?null:$('volume').valueAsNumber});
+      $('route-city').textContent=cities[city]; $('breakdown').replaceChildren();
+      $('quantity-error').textContent=quote.error||''; $('quantity-error').hidden=!quote.error; $('quantity').setAttribute('aria-invalid',String(Boolean(quote.error)));
+      $('surcharge').hidden=!quote.warning; $('surcharge').textContent=quote.warning||'';
+      $('estimate-title').textContent=service === 'bulkAir' && tax === 'DDP' ? 'Estimated total, tax included' : 'Estimated freight charges';
+      if (quote.error) {
+        $('price').textContent='—'; $('transit').textContent='—'; $('quote-subtitle').textContent='Check shipment details'; $('pricing-note').textContent=quote.error; row('No estimate available','—'); return;
+      }
+      $('price').textContent=money(quote.total); $('transit').textContent=quote.days;
+      $('quote-subtitle').textContent=serviceNames[service]+' · '+number(service === 'lcl'?quantity:quote.billed)+(service === 'lcl'?' m³':'kg billed')+(service === 'bulkAir'?' · '+tax:'');
+      quote.lines.forEach(([label,amount]) => row(label,money(amount)));
+      row('Estimated '+(service === 'bulkAir' && tax === 'DDP'?'total':'freight total'),money(quote.total),true);
+      $('pricing-note').textContent=quote.note;
+    }
+    document.querySelectorAll('[data-service]').forEach(button => button.addEventListener('click',() => selectService(button.dataset.service)));
+    document.querySelectorAll('[data-tax]').forEach(button => button.addEventListener('click',() => {
+      tax=button.dataset.tax; document.querySelectorAll('[data-tax]').forEach(item => item.setAttribute('aria-pressed',String(item.dataset.tax === tax))); calculate();
+    }));
+    ['city','cargo','delivery'].forEach(id => $(id).addEventListener('change',calculate));
+    ['quantity','volume'].forEach(id => $(id).addEventListener('input',calculate));
+    selectService('lcl');
+</script>
+</body>
+</html>
