@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Estimate shipping costs in Australian dollars from Guangzhou to Australia. East Inter September 2026 freight rates, including chargeable weight and delivery options.">
+  <meta name="description" content="Estimate shipping costs in Australian dollars from Guangzhou to Australia. East Inter October 2026 freight rates, including chargeable weight and delivery options.">
   <title>Shipping Cost Estimator | East Inter</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
@@ -28,7 +28,7 @@
   <div class="topbar"><div class="site-container"><span>From China. To your door in Australia.</span><a href="mailto:zzj@eastinter.net">Talk to our freight team ↗</a></div></div>
   <header class="site-header"><div class="header-inner site-container"><a class="brand" href="/" aria-label="East Inter home"><span class="mark">Ei<span>↗</span></span><span>EAST INTER<small>INTERNATIONAL LOGISTICS</small></span></a><nav class="site-nav" aria-label="Main navigation"><a href="/#services">Our services</a><a href="/eastinter-pricing-calculator" aria-current="page">Pricing calculator</a><a href="/#how">How it works</a><a href="/#coverage">Destinations</a><a class="home-link" href="/" aria-label="Back to East Inter home page">Back to home ↗</a></nav></div></header>
   <main>
-    <div class="intro"><div><p class="eyebrow">PLAN YOUR SHIPMENT</p><h1>Shipping Cost Estimator</h1><p>Guangzhou to Australia. Get an instant estimate in Australian dollars.</p></div><div class="rate-tag"><span class="dot"></span> SEPTEMBER 2026 RATES</div></div>
+    <div class="intro"><div><p class="eyebrow">PLAN YOUR SHIPMENT</p><h1>Shipping Cost Estimator</h1><p>Guangzhou to Australia. Get an instant estimate in Australian dollars.</p></div><div class="rate-tag"><span class="dot"></span> OCTOBER 2026 RATES</div></div>
     <div class="layout">
       <section class="card form-card" aria-label="Shipping options">
         <fieldset class="step"><legend><span class="step-no">01</span>Choose your service</legend><div class="services">
@@ -51,99 +51,18 @@
     </div>
     <div class="below"><span><i>✓</i> Instant estimates</span><span><i>✓</i> Clear breakdown</span><span><i>✓</i> No sign-up</span></div>
   </main>
-  <footer class="site-footer"><div class="site-container"><div class="footer-top"><div><a class="brand" href="/"><span class="mark">Ei<span>↗</span></span><span>EAST INTER<small>INTERNATIONAL LOGISTICS</small></span></a><p>Your China–Australia freight connection.<br>广州东际国际货运代理有限公司</p></div><div><h3>Explore</h3><div class="footer-links"><a href="/">Home</a><a href="/#services">Our services</a><a href="/eastinter-pricing-calculator">Pricing calculator</a><a href="/#coverage">Destinations</a></div></div><div><h3>Let's talk</h3><div class="footer-links"><a href="mailto:zzj@eastinter.net">zzj@eastinter.net ↗</a><a href="tel:+862082507023">+86 20 8250 7023</a><a href="mailto:info@eastinter.com.au">Request a binding quote</a></div></div></div><div class="footer-bottom"><span>© 2026 East Inter International Logistics.</span><span>All prices in AUD · Rates effective September 2026</span></div></div></footer>
+  <footer class="site-footer"><div class="site-container"><div class="footer-top"><div><a class="brand" href="/"><span class="mark">Ei<span>↗</span></span><span>EAST INTER<small>INTERNATIONAL LOGISTICS</small></span></a><p>Your China–Australia freight connection.<br>广州东际国际货运代理有限公司</p></div><div><h3>Explore</h3><div class="footer-links"><a href="/">Home</a><a href="/#services">Our services</a><a href="/eastinter-pricing-calculator">Pricing calculator</a><a href="/#coverage">Destinations</a></div></div><div><h3>Let's talk</h3><div class="footer-links"><a href="mailto:zzj@eastinter.net">zzj@eastinter.net ↗</a><a href="tel:+862082507023">+86 20 8250 7023</a><a href="mailto:info@eastinter.com.au">Request a binding quote</a></div></div></div><div class="footer-bottom"><span>© 2026 East Inter International Logistics.</span><span>All prices in AUD · Rates effective October 2026</span></div></div></footer>
+  <script src="pricing-rates.js"></script>
+  <script src="pricing-engine.js"></script>
   <script>
     'use strict';
-    // Source: East Inter Freight Rates, effective September 2026. AUD rates, not FX conversions.
-    const cities = {sydney:'Sydney',melbourne:'Melbourne',brisbane:'Brisbane',perth:'Perth (Fremantle)',adelaide:'Adelaide',goldCoast:'Gold Coast',sunshineCoast:'Sunshine Coast',other:'Other cities'};
-    const lclRates = {
-      sydney:{first:388,large:327,next:225,days:'Approx. 20 days'},
-      melbourne:{first:388,large:327,next:225,days:'Approx. 20 days'},
-      brisbane:{first:388,large:327,next:225,days:'Approx. 25 days'},
-      goldCoast:{first:388,large:327,next:225,days:'Approx. 25 days',extra:55,minimum:275,fee:'Regional surcharge'},
-      sunshineCoast:{first:388,large:327,next:225,days:'Approx. 25 days',extra:55,minimum:275,fee:'Regional surcharge'},
-      perth:{first:347,large:337,next:245,days:'25–30 days',extra:55,minimum:165,fee:'Door delivery',optional:true},
-      adelaide:{first:439,large:419,next:286,days:'Approx. 30 days',extra:35,minimum:135,fee:'Door delivery',optional:true}
-    };
-    const airParcelRates = {normal:{first:15,next:6,days:'7–12 days'},sensitive:{first:18,next:7,days:'7–14 days'}};
-    const seaParcelRates = {metro:{first:17,next:3,flat:3},other:{first:22,next:7,flat:5}};
-    // Both DDU and DDP rates in this guide are per 0.5kg.
-    const bulkRates = {
-      sydney:{DDU:10,DDP:11,days:'6–8 days'},melbourne:{DDU:10,DDP:11,days:'6–8 days'},
-      brisbane:{DDU:11,DDP:12,days:'8–10 days'},adelaide:{DDU:11,DDP:12,days:'8–10 days'},
-      perth:{DDU:11,DDP:12,days:'8–12 days'},other:{DDU:12,DDP:13,days:'8–12 days'}
-    };
+    const engine = EastInterEngine.createEngine(EastInterRates);
+    const {cities,estimate} = engine, lclRates = engine.rates.lcl;
+    const {number,money} = EastInterEngine;
     const serviceNames = {lcl:'LCL sea freight',airParcel:'Air parcel',seaParcel:'Sea parcel',bulkAir:'Bulk air freight'};
     const $ = id => document.getElementById(id);
-    const number = n => new Intl.NumberFormat('en-AU',{maximumFractionDigits:2}).format(n);
-    const money = n => 'A$' + number(n);
-    const ceilUnits = (n,size) => Math.ceil(n / size - 1e-9);
-    const seaExtras = 'Not included: any applicable GST (10% of goods value), import duty (0–10%, depending on product), fumigation (A$143 per shipment for wood/natural materials), or customs broker fee (A$99; A$201 if cargo value exceeds A$10,000). Contact us to confirm which charges apply.';
     let service = 'lcl', tax = 'DDP';
     const savedQuantities = {lcl:'5',airParcel:'2',seaParcel:'25',bulkAir:'50'};
-
-    function estimate({service,city,quantity,cargo='normal',tax='DDP',delivery='door',volume=null}) {
-      if (!Number.isFinite(quantity) || quantity <= 0) return {error:'Enter a valid weight or volume greater than zero.'};
-      if (service !== 'lcl' && volume !== null && (!Number.isFinite(volume) || volume < 0)) return {error:'Enter a valid packed volume of zero or greater, or leave it blank.'};
-      const volumetric = service === 'lcl' || volume === null ? 0 : volume * 1000000 / 6000;
-      const weight = service === 'lcl' ? quantity : Math.max(quantity,volumetric);
-      if (!Number.isFinite(weight)) return {error:'The entered shipment size is too large. Contact us for a quote.'};
-      if (service === 'lcl' && quantity < 1) return {error:'LCL rates start at 1 m³. Contact us for smaller shipments.'};
-      if (service === 'bulkAir' && (weight < 10 || weight > 99)) return {error:'Standard bulk air rates cover 10–99kg chargeable weight only. Contact us for other weights, including the reduced rates for shipments over 100kg.'};
-      let total=0, days='—', note='', warning='', billed=weight, lines=[];
-      if (service === 'lcl') {
-        const rate=lclRates[city];
-        if (!rate) return {error:'Contact us for LCL rates to this destination.'};
-        const first=quantity >= 10 ? rate.large : rate.first;
-        total=first+(quantity-1)*rate.next; days=rate.days;
-        lines.push(['First CBM · '+(quantity >= 10 ? '10 m³ and above' : 'under 10 m³'),first]);
-        if (quantity > 1) lines.push(['Additional '+number(quantity-1)+' m³ × '+money(rate.next),(quantity-1)*rate.next]);
-        note='Includes China export clearance, ocean freight, Australian import clearance and AQIS inspection. ';
-        if (rate.extra && (!rate.optional || delivery === 'door')) {
-          const fee=Math.max(quantity*rate.extra,rate.minimum);
-          total+=fee;
-          lines.push([rate.fee+' · '+money(rate.extra)+'/m³ (min. '+money(rate.minimum)+')',fee]);
-          note+=rate.fee+' is included in this estimate. ';
-        } else if (rate.optional) {
-          note+='Warehouse collection selected; door delivery is not included. ';
-        } else {
-          note+='Delivery within 30km of the warehouse is included; contact us for addresses outside this area. ';
-        }
-        note+='Origin: Guangzhou. Cargo cut-off: Tuesday; vessel departs the following Monday.';
-        warning=seaExtras;
-      } else if (service === 'airParcel') {
-        const rate=airParcelRates[cargo],units=ceilUnits(weight,0.5);
-        billed=units*0.5; total=rate.first+(units-1)*rate.next; days=rate.days;
-        lines.push(['First 0.5kg',rate.first]);
-        if (units > 1) lines.push(['Additional '+(units-1)+' × 0.5kg × '+money(rate.next),(units-1)*rate.next]);
-        note='Billed weight: '+number(billed)+'kg · '+(cargo === 'normal' ? 'General goods.' : 'Sensitive goods (powders / liquids / batteries).');
-        warning=weight >= 10 ? 'The guide lists small parcels as under approximately 10kg. This is a parcel-rate estimate only; use Bulk air freight or contact us to confirm eligibility for this weight.' : '';
-      } else if (service === 'seaParcel') {
-        const rate=seaParcelRates[['sydney','melbourne'].includes(city)?'metro':'other'];
-        const kg=ceilUnits(weight,1); billed=kg; days='30–40 days';
-        if (kg >= 20) {
-          total=kg*rate.flat; lines.push([number(kg)+'kg × '+money(rate.flat)+'/kg',total]);
-          note='Billed weight: '+number(kg)+'kg. The 20kg+ flat rate applies to the whole shipment; no first-kg charge is added.';
-        } else {
-          total=rate.first+(kg-1)*rate.next; lines.push(['First 1kg',rate.first]);
-          if (kg > 1) lines.push(['Additional '+(kg-1)+'kg × '+money(rate.next),(kg-1)*rate.next]);
-          note='Billed weight: '+number(kg)+'kg. Below 20kg billed weight, first-kg and additional-kg charges apply.';
-        }
-        warning=seaExtras;
-      } else {
-        const rate=bulkRates[city]||bulkRates.other,units=ceilUnits(weight,0.5);
-        billed=units*0.5; total=units*rate[tax]; days=rate.days;
-        lines.push([units+' × 0.5kg × '+money(rate[tax]),total]);
-        note=tax+' · Billed weight: '+number(billed)+'kg. '+(tax === 'DDP' ? 'All taxes prepaid; no extra charges at delivery.' : 'Recipient pays Australian duties and GST on arrival; these are not included.');
-      }
-      if (!Number.isFinite(total)) return {error:'The entered shipment size is too large. Contact us for a quote.'};
-      if (service !== 'lcl') {
-        note+=' Actual weight: '+number(quantity)+'kg.';
-        if (volume !== null) note+=' Volume weight: '+number(volumetric)+'kg. The greater weight is used before rounding.';
-        else note+=' Packed volume not provided; estimate assumes actual weight is the chargeable weight.';
-      }
-      return {total,days,note,warning,lines,billed};
-    }
     function updateCities() {
       const previous=$('city').value; $('city').replaceChildren();
       Object.entries(cities).forEach(([key,label]) => {if (service !== 'lcl' || lclRates[key]) $('city').add(new Option(label,key));});
@@ -171,7 +90,7 @@
         lcl:'1 CBM = 1 cubic metre. Minimum: 1 m³; extra volume is prorated. At 10 m³ and above, the reduced first-CBM rate applies.',
         airParcel:'Small parcels: under approximately 10kg. Chargeable weight is rounded up to the next 0.5kg.',
         seaParcel:'Chargeable weight is rounded up to a whole kg. At 20kg billed weight and above, the flat per-kg rate applies.',
-        bulkAir:'10–99kg chargeable weight only. Both DDU and DDP are priced per 0.5kg, rounded up.'
+        bulkAir:'10–99kg chargeable weight only. Both DDU and DDP are priced per kg, rounded up to the next whole kg.'
       }[service];
       const quote=estimate({service,city,quantity,cargo:$('cargo').value,tax,delivery:$('delivery').value,volume:$('volume').value.trim()===''?null:$('volume').valueAsNumber});
       $('route-city').textContent=cities[city]; $('breakdown').replaceChildren();
